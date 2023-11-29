@@ -1,30 +1,51 @@
-"use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+"use client"
+import { useRouter } from 'next/navigation';
+import React from 'react';
 
-export default function Login() {
+export default function Dashboard() {
   const router = useRouter();
 
   return (
-    <main className="h-screen flex items-center justify-center bg-gradient-to-bl from-cyan-500 from-cyan-600 via-blue-800 to-blue-900">
-      <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 bg-blue-950 rounded-3xl">
-        <div className="mx-auto w-full max-w-sm lg:w-96">
-          <div>
-            <h1 className="mt-6 text-3xl font-semibold text-slate-50">Dashboard</h1>
-            <div>
-                <h2 className="mt-6 text-3xl font-semibold text-slate-50">Bem Vindo ao Dashboard</h2> 
-            </div>
+    <div className='h-screen flex flex-col bg-gradient-to-bl from-cyan-500 from-cyan-600 via-blue-800 to-blue-900'>
+
+      {/* Header */}
+      <div className='bg-white p-4 flex justify-between items-center'>
+        <div className='text-3xl font-semibold text-gray-800'>Dashboard</div>
+        <button
+          type='button'
+          onClick={() => router.push('/login')}
+          className='px-4 py-2 bg-blue-700 hover:bg-blue-900 text-white rounded shadow'
+        >
+          Sair
+        </button>
+      </div>
+
+      {/* Content */}
+      <div className='flex items-center justify-center flex-1 space-x-4 overflow-y-auto'>
+        {/* Card 1 */}
+        <div className='max-w-sm bg-white shadow-lg rounded-lg overflow-hidden'>
+          <div className='px-6 py-4'>
+            <h2 className='text-2xl font-semibold text-blue-700'>CARD Grupo</h2>
+            <p className='text-gray-600'>Vou de Van</p>
           </div>
-          <div className='mb-4'>
-            <button
-              type="button"
-              onClick={() => router.push("/login")}
-              className="inline-block w-full py-4 px-8 leading-none text-white bg-indigo-700 hover:bg-blue-900 font-semibold rounded shadow">
-              voltar para login
-            </button>
+        </div>
+
+        {/* Card 2 */}
+        <div className='max-w-sm bg-white shadow-lg rounded-lg overflow-hidden'>
+          <div className='px-6 py-4'>
+            <h2 className='text-2xl font-semibold text-blue-700'>CARD Avaliadores</h2>
+            <p className='text-gray-600'>Otavio.</p>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className='max-w-sm bg-white shadow-lg rounded-lg overflow-hidden'>
+          <div className='px-6 py-4'>
+            <h2 className='text-2xl font-semibold text-blue-700'>CARD Dias</h2>
+            <p className='text-gray-600'>Segunda-Feira 27/09.</p>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
